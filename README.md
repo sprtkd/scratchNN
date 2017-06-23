@@ -11,6 +11,7 @@ https://pjreddie.com/media/files/mnist_train.csv
 # Or
 # Extract the zip file
 
+The main training and testing datasets are in csv format.
 
 The images consist of 784 pixels and there are 10 distinct labels of digits 0-9.
 The current neural network consists of the following layers:
