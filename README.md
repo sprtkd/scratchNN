@@ -40,7 +40,8 @@ The trained neural network model is saved as data.pickle
 
 # To predict, run basicNNpredict.py
     and give the path of the image you want to predict
-# Samples images are in the testing_img folder
+# Samples images are in the testing_img.zip file. 
+   Please extract it.
 
 A sample output during training is given as sample_output_tr.txt
 
