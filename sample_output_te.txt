@@ -1,0 +1,5 @@
+
+Enter name of image:
+testing_img\3\32.png
+
+The predicted output is 3

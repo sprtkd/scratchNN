@@ -1,0 +1,952 @@
+
+This is a simple neural network to be trained on mnist dataset.
+Please download the following files
+and keep them in the same directory as your python shell:
+https://pjreddie.com/media/files/mnist_test.csv
+https://pjreddie.com/media/files/mnist_train.csv
+Reading..Please wait
+labels [[ 7.]
+ [ 2.]
+ [ 1.]
+ ..., 
+ [ 4.]
+ [ 5.]
+ [ 6.]]
+data [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+Reading..Please wait
+labels [[ 5.]
+ [ 0.]
+ [ 4.]
+ ..., 
+ [ 5.]
+ [ 6.]
+ [ 8.]]
+data [[ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ ..., 
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]
+ [ 0.  0.  0. ...,  0.  0.  0.]]
+Done.
+
+Training started
+
+-------------------------------------------------
+
+Data number: 0
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 13.2 %
+
+Training error: [ 0.]
+
+Test error: [ 17.3599999]
+99.98571428571428 % training left..
+
+-------------------------------------------------
+
+Data number: 100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 23.8 %
+
+Training error: [  1.71349435e-111]
+
+Test error: [ 15.23968988]
+98.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 29.6 %
+
+Training error: [ 0.]
+
+Test error: [ 14.07842906]
+97.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 36.2 %
+
+Training error: [ 0.]
+
+Test error: [ 12.75155119]
+95.7 % training left..
+
+-------------------------------------------------
+
+Data number: 400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 41.4 %
+
+Training error: [ 0.]
+
+Test error: [ 11.71009024]
+94.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 41.8 %
+
+Training error: [ 0.]
+
+Test error: [ 11.64395388]
+92.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 45.6 %
+
+Training error: [ 0.]
+
+Test error: [ 10.87103228]
+91.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 44.6 %
+
+Training error: [ 0.]
+
+Test error: [ 11.0738834]
+89.98571428571428 % training left..
+
+-------------------------------------------------
+
+Data number: 800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 42.4 %
+
+Training error: [ 0.]
+
+Test error: [ 11.51838565]
+88.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 50.6 %
+
+Training error: [ 0.]
+
+Test error: [ 9.87987767]
+87.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 1000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 55.2 %
+
+Training error: [ 0.]
+
+Test error: [ 8.96]
+85.7 % training left..
+
+-------------------------------------------------
+
+Data number: 1100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 51.0 %
+
+Training error: [ 0.]
+
+Test error: [ 9.8]
+84.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 1200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 48.4 %
+
+Training error: [ 0.]
+
+Test error: [ 10.31997778]
+82.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 1300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 53.0 %
+
+Training error: [ 0.]
+
+Test error: [ 9.39964464]
+81.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 1400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 55.8 %
+
+Training error: [ 0.]
+
+Test error: [ 8.83999497]
+79.98571428571428 % training left..
+
+-------------------------------------------------
+
+Data number: 1500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 59.6 %
+
+Training error: [ 0.]
+
+Test error: [ 8.07969249]
+78.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 1600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 54.6 %
+
+Training error: [ 0.]
+
+Test error: [ 9.0799984]
+77.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 1700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 57.6 %
+
+Training error: [ 0.]
+
+Test error: [ 8.47998331]
+75.7 % training left..
+
+-------------------------------------------------
+
+Data number: 1800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 57.2 %
+
+Training error: [ 0.]
+
+Test error: [ 8.55948768]
+74.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 1900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 56.6 %
+
+Training error: [ 0.]
+
+Test error: [ 8.67927641]
+72.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 2000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 61.6 %
+
+Training error: [ 0.]
+
+Test error: [ 7.68]
+71.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 2100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 56.4 %
+
+Training error: [ 0.]
+
+Test error: [ 8.71949922]
+69.98571428571428 % training left..
+
+-------------------------------------------------
+
+Data number: 2200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 60.4 %
+
+Training error: [ 0.]
+
+Test error: [ 7.90445235]
+68.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 2300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 64.8 %
+
+Training error: [ 0.]
+
+Test error: [ 7.03936161]
+67.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 2400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 63.8 %
+
+Training error: [ 0.]
+
+Test error: [ 7.239998]
+65.7 % training left..
+
+-------------------------------------------------
+
+Data number: 2500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 64.6 %
+
+Training error: [ 0.]
+
+Test error: [ 7.07999971]
+64.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 2600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 66.0 %
+
+Training error: [ 0.]
+
+Test error: [ 6.79627756]
+62.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 2700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 63.8 %
+
+Training error: [ 0.]
+
+Test error: [ 7.23863942]
+61.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 2800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 63.6 %
+
+Training error: [ 0.]
+
+Test error: [ 7.28]
+59.98571428571429 % training left..
+
+-------------------------------------------------
+
+Data number: 2900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 64.8 %
+
+Training error: [ 0.]
+
+Test error: [ 7.04009608]
+58.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 3000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 66.4 %
+
+Training error: [  4.00421008e-97]
+
+Test error: [ 6.71901715]
+57.128571428571426 % training left..
+
+-------------------------------------------------
+
+Data number: 3100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 66.2 %
+
+Training error: [ 0.]
+
+Test error: [ 6.7599796]
+55.7 % training left..
+
+-------------------------------------------------
+
+Data number: 3200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 67.8 %
+
+Training error: [ 0.]
+
+Test error: [ 6.44]
+54.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 3300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 69.0 %
+
+Training error: [ 0.]
+
+Test error: [ 6.19978977]
+52.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 3400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 60.6 %
+
+Training error: [ 0.]
+
+Test error: [ 7.87422681]
+51.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 3500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 69.8 %
+
+Training error: [  8.37872090e-239]
+
+Test error: [ 6.03981041]
+49.98571428571429 % training left..
+
+-------------------------------------------------
+
+Data number: 3600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 65.4 %
+
+Training error: [  7.38208600e-271]
+
+Test error: [ 6.92008086]
+48.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 3700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 67.4 %
+
+Training error: [ 0.]
+
+Test error: [ 6.52000071]
+47.128571428571426 % training left..
+
+-------------------------------------------------
+
+Data number: 3800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 66.4 %
+
+Training error: [ 0.]
+
+Test error: [ 6.71994697]
+45.7 % training left..
+
+-------------------------------------------------
+
+Data number: 3900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 68.6 %
+
+Training error: [ 0.]
+
+Test error: [ 6.27864249]
+44.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 4000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 69.2 %
+
+Training error: [ 0.]
+
+Test error: [ 6.12994734]
+42.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 4100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 67.2 %
+
+Training error: [ 0.]
+
+Test error: [ 6.55999961]
+41.41428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 4200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 68.2 %
+
+Training error: [ 0.]
+
+Test error: [ 6.35959952]
+39.98571428571429 % training left..
+
+-------------------------------------------------
+
+Data number: 4300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 63.8 %
+
+Training error: [ 0.]
+
+Test error: [ 7.239968]
+38.55714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 4400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 68.0 %
+
+Training error: [ 0.]
+
+Test error: [ 6.39957352]
+37.128571428571426 % training left..
+
+-------------------------------------------------
+
+Data number: 4500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 65.2 %
+
+Training error: [ 0.]
+
+Test error: [ 6.942608]
+35.7 % training left..
+
+-------------------------------------------------
+
+Data number: 4600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 69.8 %
+
+Training error: [  5.36285416e-11]
+
+Test error: [ 6.03118871]
+34.27142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 4700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 69.0 %
+
+Training error: [  1.36709384e-173]
+
+Test error: [ 6.2]
+32.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 4800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 68.6 %
+
+Training error: [ 0.]
+
+Test error: [ 6.28033432]
+31.414285714285715 % training left..
+
+-------------------------------------------------
+
+Data number: 4900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 70.6 %
+
+Training error: [ 0.]
+
+Test error: [ 5.87600282]
+29.985714285714284 % training left..
+
+-------------------------------------------------
+
+Data number: 5000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.8 %
+
+Training error: [ 0.]
+
+Test error: [ 5.61766909]
+28.557142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 5100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 70.4 %
+
+Training error: [ 0.]
+
+Test error: [ 5.91999632]
+27.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 5200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.2 %
+
+Training error: [  2.14683839e-245]
+
+Test error: [ 5.75665946]
+25.7 % training left..
+
+-------------------------------------------------
+
+Data number: 5300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.8 %
+
+Training error: [ 0.]
+
+Test error: [ 5.62363563]
+24.271428571428572 % training left..
+
+-------------------------------------------------
+
+Data number: 5400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 72.0 %
+
+Training error: [ 0.]
+
+Test error: [ 5.60038853]
+22.84285714285714 % training left..
+
+-------------------------------------------------
+
+Data number: 5500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 72.2 %
+
+Training error: [ 0.]
+
+Test error: [ 5.55191634]
+21.414285714285715 % training left..
+
+-------------------------------------------------
+
+Data number: 5600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 68.8 %
+
+Training error: [  1.21136127e-76]
+
+Test error: [ 6.24]
+19.985714285714284 % training left..
+
+-------------------------------------------------
+
+Data number: 5700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 70.6 %
+
+Training error: [ 0.]
+
+Test error: [ 5.8783082]
+18.557142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 5800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.8 %
+
+Training error: [ 0.]
+
+Test error: [ 5.62174352]
+17.12857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 5900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 72.4 %
+
+Training error: [ 0.]
+
+Test error: [ 5.51855748]
+15.7 % training left..
+
+-------------------------------------------------
+
+Data number: 6000
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.6 %
+
+Training error: [ 0.]
+
+Test error: [ 5.67997348]
+14.271428571428572 % training left..
+
+-------------------------------------------------
+
+Data number: 6100
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 73.8 %
+
+Training error: [ 0.]
+
+Test error: [ 5.24]
+12.842857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 6200
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 73.0 %
+
+Training error: [ 0.]
+
+Test error: [ 5.39999896]
+11.414285714285715 % training left..
+
+-------------------------------------------------
+
+Data number: 6300
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 73.2 %
+
+Training error: [ 0.]
+
+Test error: [ 5.36093899]
+9.985714285714286 % training left..
+
+-------------------------------------------------
+
+Data number: 6400
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 72.2 %
+
+Training error: [ 0.]
+
+Test error: [ 5.56]
+8.557142857142857 % training left..
+
+-------------------------------------------------
+
+Data number: 6500
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 74.0 %
+
+Training error: [ 0.]
+
+Test error: [ 5.17249828]
+7.128571428571429 % training left..
+
+-------------------------------------------------
+
+Data number: 6600
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 73.4 %
+
+Training error: [  8.53628516e-136]
+
+Test error: [ 5.30642126]
+5.7 % training left..
+
+-------------------------------------------------
+
+Data number: 6700
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 71.8 %
+
+Training error: [ 0.]
+
+Test error: [ 5.63998139]
+4.271428571428571 % training left..
+
+-------------------------------------------------
+
+Data number: 6800
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 73.2 %
+
+Training error: [ 0.]
+
+Test error: [ 5.35999918]
+2.842857142857143 % training left..
+
+-------------------------------------------------
+
+Data number: 6900
+
+Training accuracy for current: 100.0 %
+
+Test accuracy: 72.4 %
+
+Training error: [  1.91405408e-202]
+
+Test error: [ 5.51515951]
+1.4142857142857144 % training left..
+
+Training finished!!
+>>> 
