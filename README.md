@@ -9,7 +9,8 @@ http://crowdylab.droppages.com/
 https://pjreddie.com/media/files/mnist_test.csv
 https://pjreddie.com/media/files/mnist_train.csv
 # Or
-# Extract the zip file
+# Extract the zip file: 
+    mnist_dataset.zip
 
 The main training and testing datasets are in csv format.
 
