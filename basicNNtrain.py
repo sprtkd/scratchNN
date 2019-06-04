@@ -1,9 +1,7 @@
-print('This is a simple neural network to be trained on mnist dataset.\nPlease download the following files\nand keep them in the same directory as your python shell:\nhttps://pjreddie.com/media/files/mnist_test.csv\nhttps://pjreddie.com/media/files/mnist_train.csv')
-
 import numpy as np
 import csv
 import pickle
-
+import matplotlib as plt
 ##flow--
 ##input data from mnist csv -> input layer -> hidden layers -> output layer
 ##there are several neurons in each layer each of which contains an array of weights and a bias
@@ -57,25 +55,24 @@ def mnistloader():
 
 #mnist load
 train_labels, train_data, test_labels, test_data = mnistloader()
-
+print('train_labels shape:', train_data.shape)
 #definite randomize init
 np.random.seed(8)
 
 
 #size of neural network
-hidden_layer_num = 3
+hidden_layer_num = 2
 training_size = 60000
 test_size = 10000
 
 input_nodes = train_data.shape[1]
-hidden1_nodes = 500
-hidden2_nodes = 300
-hidden3_nodes = 100
+hidden1_nodes = 512
+hidden2_nodes = 512
 output_nodes = 10
 
 #hyperparameters
-learning_rate = 0.00000001
-train_epoch_per_data = 30
+learning_rate = 0.00001
+train_epoch_per_data = 20
 reg_term = 0.01
 
 #activation function
@@ -83,8 +80,8 @@ def relu(x):
     y=x
     for i in range(x.shape[0]):
         y[i]=np.maximum(0,x[i])
-    return y
-
+    return y   
+   
 def relu_derivative(x):
     y=x
     for i in range(x.shape[0]):
@@ -94,7 +91,8 @@ def relu_derivative(x):
             else:
                 y[i][j]= 0.0
     return y
-    
+   
+
 def softmax(x):
     exparr = np.exp(x-np.max(x))
     f = exparr/exparr.sum(axis=1)
@@ -117,18 +115,13 @@ hid_layer2_weights = np.random.randn(hidden1_nodes ,hidden2_nodes)
 hid_layer2_weights = hid_layer2_weights/(np.amax(hid_layer2_weights))
 hid_layer2_biases = np.zeros((1,hidden2_nodes))
 
-#hidden layer 3
-hid_layer3_weights = np.random.randn(hidden2_nodes ,hidden3_nodes)
-hid_layer3_weights = hid_layer3_weights/(np.amax(hid_layer3_weights))
-hid_layer3_biases = np.zeros((1,hidden3_nodes))
-
 #output layer
-output_layer_weights = np.random.randn(hidden3_nodes ,output_nodes)
+output_layer_weights = np.random.randn(hidden2_nodes ,output_nodes)
 output_layer_weights = output_layer_weights/(np.amax(output_layer_weights))
 output_layer_biases = np.zeros((1,output_nodes))
 
 #actual model param tuple
-model_params = (hid_layer1_weights,hid_layer1_biases, hid_layer2_weights,hid_layer2_biases, hid_layer3_weights,hid_layer3_biases, output_layer_weights,output_layer_biases)
+model_params = (hid_layer1_weights,hid_layer1_biases, hid_layer2_weights,hid_layer2_biases, output_layer_weights,output_layer_biases)
 
 
 def loadmodel(path):
@@ -147,38 +140,30 @@ def savemodel(path,model_pars):
 
 
 def feedforward(input_data,model_par):
-    hlw_1,hlb_1, hlw_2,hlb_2, hlw_3,hlb_3, ow,ob = model_par
+    hlw_1,hlb_1, hlw_2,hlb_2, ow,ob = model_par
     m1 = np.dot(input_data ,hlw_1) + hlb_1
     z1 = relu(m1)
     m2 = np.dot(z1 ,hlw_2) + hlb_2
     z2 = relu(m2)
-    m3 = np.dot(z2, hlw_3) + hlb_3
-    z3 = relu(m3)
-    m4 = np.dot(z3 ,ow) + ob
-    predicted_prob=softmax(m4)
-    
-    return (predicted_prob,z1,z2,z3)
+    m3 = np.dot(z2, ow) + ob
+    predicted_prob=softmax(m3)
+    return (predicted_prob,z1,z2)
 
 
 
 
 def backprop(input_data,input_label,transfer_model,model_par,epsilon):
-    predicted_prob,z1,z2,z3 = transfer_model
-    hlw_1,hlb_1, hlw_2,hlb_2, hlw_3,hlb_3, ow,ob = model_par
+    predicted_prob,z1,z2 = transfer_model
+    hlw_1,hlb_1, hlw_2,hlb_2, ow,ob = model_par
     
     #compute the derivative of the weights and biases and return the updated ones
     #d stands for derivative
 
-    delta4 = (predicted_prob - input_label)  #predict - label
-    dow = np.dot(z3.T,delta4)
-    dob = np.sum(delta4)
-    
-    delta3 = np.multiply(np.dot(delta4,ow.T), relu_derivative(z3))
-    
-    dhlw_3 =np.dot(z2.T,delta3) 
-    dhlb_3 =np.sum(delta3)
-    
-    delta2 = np.multiply(np.dot(delta3,hlw_3.T) , relu_derivative(z2))
+    delta3 = (predicted_prob - input_label)  #predict - label
+    dow = np.dot(z2.T,delta3)
+    dob = np.sum(delta3)
+
+    delta2 = np.multiply(np.dot(delta3,ow.T) , relu_derivative(z2))
     
     dhlw_2 =np.dot(z1.T,delta2) 
     dhlb_2 =np.sum(delta2)
@@ -192,7 +177,6 @@ def backprop(input_data,input_label,transfer_model,model_par,epsilon):
     #regularization
     dhlw_1 += reg_term * hlw_1
     dhlw_2 += reg_term * hlw_2
-    dhlw_3 += reg_term * hlw_3
     dow += reg_term * ow
 
     #updating
@@ -200,12 +184,10 @@ def backprop(input_data,input_label,transfer_model,model_par,epsilon):
     hlb_1 -= epsilon*dhlb_1
     hlw_2 -= epsilon*dhlw_2
     hlb_2 -= epsilon*dhlb_2
-    hlw_3 -= epsilon*dhlw_3
-    hlb_3 -= epsilon*dhlb_3
     ow -= epsilon*dow
     ob -= epsilon*dob
     
-    return (hlw_1,hlb_1, hlw_2,hlb_2, hlw_3,hlb_3, ow,ob)
+    return (hlw_1,hlb_1, hlw_2,hlb_2, ow,ob)
 
 
 
@@ -261,8 +243,8 @@ for j in range(training_size):
     if j%1000==0:
         print("\n-------------------------------------------------")
         print("\nData number:",j)
-        #print("\nPredicted_probabilities",pred)
-        #print("\nActual Label",train_labels[j])
+        print("\nPredicted_probabilities",pred)
+        print("\nActual Label",train_labels[j])
         print('\nTraining accuracy for current:',accuracy_calc(tr_data,tr_label,model_params,1),"%")
         print('\nTest accuracy:',accuracy_calc(test_data,test_labels,model_params,test_size),"%")
         print('\nTraining error:',accuracy_calc_mse(tr_data,tr_label,model_params,1))
@@ -274,3 +256,5 @@ print('\nTraining accuracy:',accuracy_calc(train_data,train_labels,model_params,
 print('\nTest accuracy:',accuracy_calc(test_data,test_labels,model_params,test_size),"%")
 
 savemodel('data.pickle',model_params)
+
+
